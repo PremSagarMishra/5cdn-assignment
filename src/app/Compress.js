@@ -60,9 +60,15 @@ const Compress = ({ image, setImgSrc }) => {
       </div>
       {isOpen && (
         <div className='bottom'>
-          <div style={{ display: 'flex', gap: "20px",flexWrap:"wrap" }}>
-            <input type='number' placeholder='Width' onChange={(e)=>{setWidth(e.target.value)}} value={width}/>
-            <input type='number' placeholder='Height' onChange={(e)=>{setHeight(e.target.value)}} value={height}/>
+          <div style={{ display: 'flex', gap: "20px",flexWrap:"wrap", alignItems:'center'}}>
+            <div>
+            <label for="width">Width: </label>
+            <input type='number'  id="width" placeholder='Width' onChange={(e)=>{setWidth(e.target.value)}} value={width}/>
+            </div>
+            <div>
+            <label for="height">Height: </label>
+            <input type='number' id="height" placeholder='Height' onChange={(e)=>{setHeight(e.target.value)}} value={height}/>
+            </div>
           </div>
           <br />
           <input
@@ -73,7 +79,7 @@ const Compress = ({ image, setImgSrc }) => {
             value={quality}
             onChange={(e) => setQuality(parseInt(e.target.value))}
           />
-          <label htmlFor="qualityRange">{quality}%</label>
+          <label htmlFor="qualityRange">Quality:{quality}%</label>
           <br /><br />
           <select
             value={format}
