@@ -9,7 +9,7 @@ import { AppContext } from '../Comp';
 const Page = () => {
   const [opacity, setOpacity] = useState(0)
   const [contrast, setContrast] = useState(0)
-  const [selection, setSelection] = useState("contrast")
+  const [selection, setSelection] = useState("greyscale")
   const { imgSrc, setImgSrc } = useContext(AppContext)
 
   const handleChange = (event) => {
@@ -54,9 +54,9 @@ const Page = () => {
         <label style={{ fontWeight: "bold" }}>Type</label>
         <FormControl style={{ width: "100%", border: "1px solid white", borderRadius: "10px", marginTop: "10px" }}>
           <Select value={selection} onChange={handleChange} style={{ color: "white" }} displayEmpty>
-            <MenuItem value="contrast">Contrast</MenuItem>
+            {/* <MenuItem value="contrast">Contrast</MenuItem> */}
             <MenuItem value="greyscale">Greyscale</MenuItem>
-            <MenuItem value="opacity">Opacity</MenuItem>
+            {/* <MenuItem value="opacity">Opacity</MenuItem> */}
           </Select>
         </FormControl>
       </div>

@@ -10,7 +10,7 @@ const Resize = () => {
   const [width, setWidth] = useState(0);
   const [height, setHeight] = useState(0);
   const { imgSrc, setImgSrc } = useContext(AppContext)
-  const [type, setType] = React.useState('crop');
+  const [type, setType] = React.useState('cover');
 
   const handleChange = (event) => {
     setType(event.target.value);
@@ -32,7 +32,7 @@ const Resize = () => {
         headers: {
           'Content-Type': 'application/json',
         },
-        body: JSON.stringify({ image: imgSrc, newWidth: width, newHeight: height }),
+        body: JSON.stringify({ image: imgSrc, newWidth: width, newHeight: height ,resizeType: type  }),
       });
 
       const { resizedImage } = await response.json();
@@ -55,7 +55,7 @@ const Resize = () => {
             style={{ color: "white" }}
             displayEmpty
           >
-            <MenuItem value="crop">Crop</MenuItem>
+            <MenuItem value="cover">Crop</MenuItem>
             <MenuItem value="fitandfill">Fit and Fill</MenuItem>
           </Select>
         </FormControl>
